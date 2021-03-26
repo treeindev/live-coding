@@ -7,7 +7,7 @@ function App() {
     <div className="bg-red-600 p-20 min-h-screen">
       <div className="flex bg-white rounded-lg overflow-hidden shadow-2xl">
         <Navigation></Navigation>
-        <div>
+        <div className="flex-grow">
           <SearchBar></SearchBar>
         </div>
       </div>

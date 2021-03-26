@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-// import {ReactComponent as Cog} from "..";
 
 const Navigation: FC<any> = () => {
     return(
