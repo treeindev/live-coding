@@ -1,4 +1,5 @@
 import React from 'react';
+import Content from './components/content';
 import Navigation from './components/navigation';
 import SearchBar from './components/search_bar';
 
@@ -9,6 +10,7 @@ function App() {
         <Navigation></Navigation>
         <div className="flex-grow">
           <SearchBar></SearchBar>
+          <Content></Content>
         </div>
       </div>
     </div>
