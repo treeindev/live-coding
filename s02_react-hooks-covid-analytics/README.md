@@ -23,8 +23,8 @@
 - The hook works perfectly with the destructuring assignment syntax. 
 
 ```javascript
-const [active, setActive] = useEffect(true);
-const [name, setName] = useEffect("user");
+const [active, setActive] = useState(true);
+const [name, setName] = useState("user");
 ...
 setActive(false);
 ```
