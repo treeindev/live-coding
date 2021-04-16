@@ -46,7 +46,34 @@ useEffect( () => {
 }, [active]);
 ```
 
+<br><br>
 
+### useReducer
+- It is an alternative to the useState hook. It is used to update a component's state.
+- useReducer is preferable to useState when the component has to deal with complex logic like multiple sub-value objects, arrays...
+- It is based on dispatchers to update the state. This allows for logic before updating the state.
+- React garanties the dispatch function is not going to change after a component’s re-render. 
+- The syntax of this React Hook is familiar to the one used with Redux.
+- Key Concepts
+   - State: It is the persistent value of a React component.
+   - Reducer: Is a plain JavaScript functions that is going to apply logic before upading the state.
+   - Dispatch: Refers to returning function from initializing the hook.
+   - Action: Is the object containing details of the changes. 
+- The initial value is passed in as the second parameter.
+- A lazy loading is possible if a callback function is passed on the third parameter.
+
+```javascript
+function reducer (state, action) {
+   return action.type === "sum" ? state+1 : state;
+}
+
+const [state, dispatch] = useReducer(reducer, 0);
+
+<button onClick={()=>{dispatch({"type":"sum"})}}>Sum one</button>
+<button onClick={()=>{dispatch({"type":null})}}>Stay as is</button>
+```
+
+<br><br>
 
 # Running the project
 

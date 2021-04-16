@@ -9,15 +9,19 @@ export interface iCountry {
     "Total Cases_text": string;
     "Total Deaths_text": string;
     "Total Recovered_text": string;
+    "favourite": boolean;
 }
 
 export interface iContent {
     countries: Array<iCountry>;
+    dispatcher: any;
+    section: string;
 }
 
-const Content: FC<iContent> = ({countries}) => {
+const Content: FC<iContent> = ({countries, section, dispatcher}) => {
     const getCountries = ():any => {
         return countries.map((country, index) => {
+            if (section === "favourites" && !country.favourite) { return ""; }
             return( 
                 <div key={index}>
                     <div className="w-10">
@@ -32,11 +36,27 @@ const Content: FC<iContent> = ({countries}) => {
                     <div className="w-20">
                         <span>{country["Total Recovered_text"]}</span>
                     </div>
+                    <div className="w-10">
+                        <div className="cmp__checkbox">
+                            <label>
+                                Favourite
+                                <input 
+                                    type="checkbox"
+                                    defaultChecked={country.favourite}
+                                    onChange={(event) => {dispatcher({
+                                        type: event.target.checked ? "favourite" : "unfavourite",
+                                        data: country
+                                    })}}
+                                />
+                                <span className="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             );
         })
     }
-
+    
     return (
         <section className="layout-main">
             <div className="cmp__cards">
